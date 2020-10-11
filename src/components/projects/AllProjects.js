@@ -1,7 +1,7 @@
 import React from 'react';
-import Project from "./Project";
+import Project from "../projects/Project";
 
-const AllProjects = () => {
+const AllProjects = ( {projects} ) => {
     return (
         <div className="container">
             <h3>All Projects Component</h3>
@@ -10,7 +10,9 @@ const AllProjects = () => {
             <br/>
             <br/>
             <div className="container">
-                <Project />
+                {projects.map((project, index) => {
+                    return <Project key={project.id} index={index} {...project} />
+                })}
             </div>
         </div>
     )

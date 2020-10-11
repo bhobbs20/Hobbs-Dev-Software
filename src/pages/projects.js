@@ -1,10 +1,14 @@
 import React from "react";
+import {graphql} from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import AllProjects from "../components/projects/AllProjects";
 
 
-const ProjectsPage = () => {
+const ProjectsPage = ({data}) => {
+      const {
+            allContentfulProject: {nodes: projects}
+      } = data
     return (
         <Layout>
             <SEO title="Projects" />
@@ -14,10 +18,28 @@ const ProjectsPage = () => {
             <hr/>
             <br/>
             <div className="">
-                <AllProjects />
+                <AllProjects projects={projects} />
             </div>
         </Layout>
     )
 }
+
+export const query = graphql`
+    {
+        allContentfulProject {
+            nodes {
+                github
+                title
+                type
+                mainImage {
+                    fluid {
+                        src
+                    }
+                }
+            }
+        }
+    }
+`;
+
 
 export default ProjectsPage;
