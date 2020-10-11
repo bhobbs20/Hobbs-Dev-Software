@@ -29,6 +29,7 @@ export const query = graphql`
         allContentfulProject {
             nodes {
                 github
+                slug
                 title
                 type
                 mainImage {
