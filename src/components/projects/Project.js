@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
-const Project = ({mainImage, title, github, type, slug}) => {
+const Project = ({mainImage, title, github, type, slug, id}) => {
     return (
-        <div className="container">
-            <img src={mainImage.fluid.src} alt="project" />
-            <h2>{title}</h2>
-            <h4>{type}</h4>
-            <p>{github}</p>
-            <div className="container">
-                <Link to={`/projects/${slug}`}>View</Link>
-            </div>
-        </div>
+        <>
+            <article key={id} className="card">
+                <div className="project-container">
+                    <img src={mainImage.fluid.src} alt="project" className="pic-image" />
+                    <div className="project-info">
+                        <p className="project-p">{type}</p>
+                        <h2>{title}</h2>
+                    </div>
+                </div>
+            </article>
+        </>
     )
 }
 

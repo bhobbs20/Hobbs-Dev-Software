@@ -9,19 +9,14 @@ const ProjectsPage = ({data}) => {
       const {
             allContentfulProject: {nodes: projects}
       } = data
-    return (
-        <Layout>
-            <SEO title="Projects" />
-            <div className="container">
-                <h3>Projects</h3>
-            </div>
-            <hr/>
-            <br/>
-            <div className="">
-                <AllProjects projects={projects} />
-            </div>
-        </Layout>
-    )
+      return (
+            <Layout>
+                 <SEO title="Projects" />
+                 <>
+                     <AllProjects projects={projects}  />
+                     </>
+            </Layout>
+      )
 }
 
 export const query = graphql`
